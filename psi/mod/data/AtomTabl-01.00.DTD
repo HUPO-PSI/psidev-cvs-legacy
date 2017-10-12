@@ -1,0 +1,36 @@
+<!-- AtomTabl.DTD -->
+<!-- Prepared by John S. Garavelli 10-Apr-2009 -->
+<!-- provisional, validated version 01.00 13-Apr-2009 -->
+<!-- Currently the psimod namespace is emulated in DTD. -->
+<!ELEMENT psimod:isotope_table (psimod:element+)>
+<!ATTLIST psimod:isotope_table
+  xmlns:psimod CDATA #FIXED "http://psidev.sourceforge.net/mod/data/PSI-MOD">
+
+<!ELEMENT psimod:element (
+  psimod:element.atom_no,
+  psimod:element.name,
+  psimod:element.symbol,
+  psimod:element.avg_mass?,
+  psimod:element.isotope*)
+>
+<!ATTLIST psimod:element iso_count CDATA #REQUIRED>
+
+<!ELEMENT psimod:element.atom_no  (#PCDATA)>
+<!ELEMENT psimod:element.name     (#PCDATA)>
+<!ELEMENT psimod:element.symbol   (#PCDATA)>
+<!ELEMENT psimod:element.avg_mass (#PCDATA)>
+
+<!ELEMENT psimod:element.isotope  (
+  psimod:element.isotope.mass_no,
+  psimod:element.isotope.name?,
+  psimod:element.isotope.symbol,
+  psimod:element.isotope.mass,
+  psimod:element.isotope.fract)
+>
+<!ATTLIST psimod:element.isotope most_common (TRUE|FALSE) "FALSE">
+
+<!ELEMENT psimod:element.isotope.mass_no (#PCDATA)>
+<!ELEMENT psimod:element.isotope.name    (#PCDATA)>
+<!ELEMENT psimod:element.isotope.symbol  (#PCDATA)>
+<!ELEMENT psimod:element.isotope.mass    (#PCDATA)>
+<!ELEMENT psimod:element.isotope.fract   (#PCDATA)>
